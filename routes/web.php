@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/quote', function () {
+    $quotes=config('quotes');
+    $retuenQuoteKey=array_rand($quotes);
+    return response($quotes[$retuenQuoteKey]['quote'],200);
 });
